@@ -1,0 +1,24 @@
+name: Go CI
+
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24'
+
+      - name: Install golangci-lint
+        run: curl -sSfL https://githubusercontent.com | sh -s -- -b $(go env GOPATH)/bin v1.59.1
+
+      - name: Run Linter
+        run: make lint
+
+      - name: Run Tests with Coverage
+        run: go test -v -coverprofile=coverage.out ./...
