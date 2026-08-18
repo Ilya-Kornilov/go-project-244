@@ -8,16 +8,9 @@ import (
 	"code"
 
 	"github.com/urfave/cli/v3"
-	"github.com/stretchr/testify/assert"
-	"gopkg.in/yaml.v3"
 )
 
 func main() {
-	// Prevent unused-import errors while keeping libs in go.mod
-	_ = assert.Equal
-	var n yaml.Node
-	_ = n
-
 	app := &cli.Command{
 		Name:  "gendiff",
 		Usage: "Compares two configuration files and shows a difference.",

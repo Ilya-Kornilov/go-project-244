@@ -21,8 +21,6 @@ func formatNodes(nodes []differ.Node, path string) string {
 			currentPath = path + "." + node.Key
 		}
 
-		// Object -> scalar or scalar -> object is represented
-		// by two consecutive nodes with the same key.
 		if i+1 < len(nodes) &&
 			nodes[i+1].Key == node.Key &&
 			node.Status == "removed" &&
