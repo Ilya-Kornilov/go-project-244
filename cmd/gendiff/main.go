@@ -5,8 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	// "code/internal/parser"
-	"code/internal/differ"
+	"code"
 
 	"github.com/urfave/cli/v3"
 	"github.com/stretchr/testify/assert"
@@ -34,7 +33,8 @@ func main() {
 		Action: func(ctx context.Context, cmd *cli.Command) error {
 			args := cmd.Args().Slice()
 
-			res, err := differ.GenDiff(args[0], args[1])
+			formatFlag := cmd.String("format")
+			res, err := code.GenDiff(args[0], args[1], formatFlag)
 			if err != nil {
 				return err
 			}
