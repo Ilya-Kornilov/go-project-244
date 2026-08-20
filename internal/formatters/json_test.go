@@ -8,6 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+// tests the case when a `[]differ.Node` transforms into a JSON string
 func TestJSON(t *testing.T) {
 	nodes := []differ.Node{
 		{

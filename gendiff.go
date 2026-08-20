@@ -7,6 +7,8 @@ import (
 	"code/internal/formatters"
 )
 
+// reads the differences, if any, between the two files
+// and applies the format to the result string
 func GenDiff(path1, path2, format string) (string, error) {
 	nodes, err := differ.GenDiff(path1, path2)
 	if err != nil {

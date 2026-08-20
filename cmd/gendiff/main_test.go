@@ -5,6 +5,7 @@ import (
 	"testing"
 )
 
+// tests the differences, if any, between two JSON files
 func TestGenDiffJSON(t *testing.T) {
 	res, err := code.GenDiff(
 		"../../testdata/file1.json", 
@@ -28,6 +29,7 @@ func TestGenDiffJSON(t *testing.T) {
 	}
 }
 
+// tests the differences, if any, between two YAML files
 func TestGenDiffYAML(t *testing.T) {
 	res, err := code.GenDiff(
 		"../../testdata/file1.yaml", 

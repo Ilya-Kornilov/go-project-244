@@ -12,6 +12,7 @@ import (
 
 type Data map[string]interface{}
 
+// reads the file into a byte slice
 func ReadFile(path string) ([]byte, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
@@ -21,6 +22,7 @@ func ReadFile(path string) ([]byte, error) {
 	return data, nil
 }
 
+// transforms a JSON file into `Data` type
 func ParseJSON(data []byte) (Data, error) {
 	d := Data{}
 	err := json.NewDecoder(bytes.NewReader(data)).Decode(&d)
@@ -28,6 +30,7 @@ func ParseJSON(data []byte) (Data, error) {
 	return d, err
 }
 
+// transforms a YAML file into `Data` type
 func ParseYAML(data []byte) (Data, error) {
 	d := Data{}
 	err := yaml.Unmarshal(data, &d)
@@ -35,6 +38,7 @@ func ParseYAML(data []byte) (Data, error) {
 	return d, err
 }
 
+// parses the file
 func ParseFile(path string) (Data, error) {
 	ext := filepath.Ext(path)
 
@@ -51,6 +55,7 @@ func ParseFile(path string) (Data, error) {
 	return d, nil
 }
 
+// checks the file extension
 func Parse(data []byte, ext string) (Data, error) {
 	switch ext {
 	case ".json":

@@ -130,6 +130,7 @@ func buildDiff(left, right parser.Data) []Node {
 	return nodes
 }
 
+// parces the two files into a `[]differ.Node`
 func GenDiff(path1, path2 string) ([]Node, error) {
 	left, err := parser.ParseFile(path1)
 	if err != nil {

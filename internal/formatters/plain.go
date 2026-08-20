@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// transforms a `[]differ.Node` into a plain unformatted string
 func Plain(nodes []differ.Node) string {
 	return formatNodes(nodes, "")
 }

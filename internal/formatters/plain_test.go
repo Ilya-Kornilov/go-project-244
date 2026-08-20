@@ -7,6 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+// tests the case when a `[]differ.Node` transforms into a plain unformatted string
 func TestPlain(t *testing.T) {
 	nodes := []differ.Node{
 		{

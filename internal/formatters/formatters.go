@@ -6,6 +6,7 @@ import (
 	"code/internal/differ"
 )
 
+// tansforms `[]differ.Node` into a string according to a required format
 func Format(nodes []differ.Node, format string) (string, error) {
 	switch format {
 	case "stylish":

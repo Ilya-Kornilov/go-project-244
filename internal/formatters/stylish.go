@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+// transforms a `[]differ.Node` into a formatted string
+// showing formatted differences, if any, between two files
 func Stylish(nodes []differ.Node) string {
 	return "{\n" + formatStylishNodes(nodes, 0) + "\n}"
 }
